@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Testing ecommerce Apps" verbose="1">
+    <listeners>
+        <listener class-name="com.shubham.listener.MyTestListener"/>
+    </listeners>
+
+    <test name="FLipkart App Testing">
+        <classes>
+            <class name="com.shubham.test.launchUrlTest"/>
+        </classes>
+    </test>
+</suite>
