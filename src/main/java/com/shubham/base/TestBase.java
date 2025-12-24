@@ -21,6 +21,7 @@ public Properties prop;
 
 
     }
+    //Initiallize the driver for Test classes
     public WebDriver launchBrowserDriver() throws IOException {
         WebDriver driver = null;
 
@@ -29,7 +30,7 @@ public Properties prop;
             case "Chrome":
                 System.setProperty(
                         "webdriver.chrome.driver",
-                        "C:\\Program Files\\chromedriver-win64\\chromedriver.exe");
+                        "C:\\chromedriver-win64\\chromedriver.exe");
                 // Instantiate a ChromeDriver class.
                 driver = new ChromeDriver();
                 driver.manage().window().maximize();
