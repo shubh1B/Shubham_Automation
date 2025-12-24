@@ -21,7 +21,7 @@ public Properties prop;
 
 
     }
-    //Initiallize the driver for Test classes
+    //Initiallize the driver for Test classes for CI CD
     public WebDriver launchBrowserDriver() throws IOException {
         WebDriver driver = null;
 
