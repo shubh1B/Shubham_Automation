@@ -1,8 +1,10 @@
 package com.shubham.base;
 
 
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 
 import java.io.FileInputStream;
@@ -28,11 +30,23 @@ public Properties prop;
         String browser = prop.getProperty("browser");
         switch (browser) {
             case "Chrome":
-                System.setProperty(
-                        "webdriver.chrome.driver",
-                        "C:\\chromedriver-win64\\chromedriver.exe");
+                //Headless is used for jenkins
+                String headless = System.getProperty("headless");
+
+                ChromeOptions options = new ChromeOptions();
+                if ("true".equalsIgnoreCase(headless)) {
+                    options.addArguments("--headless=new");
+                    options.addArguments("--disable-gpu");
+                    options.addArguments("--window-size=1920,1080");
+                }
+
+                WebDriverManager.chromedriver().setup();
+
+//                System.setProperty(
+//                        "webdriver.chrome.driver",
+//                        "C:\\chromedriver-win64\\chromedriver.exe");
                 // Instantiate a ChromeDriver class.
-                driver = new ChromeDriver();
+                driver = new ChromeDriver(options);
                 driver.manage().window().maximize();
                 driver.manage().deleteAllCookies();
                 break;
