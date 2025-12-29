@@ -35,7 +35,7 @@ public class launchUrlTest extends TestBase {
 
     @Test(priority = 2, dataProvider = "excelData", dataProviderClass = ExcelDataProvider.class)
     public void launchUrl(appData dt) throws IOException, InterruptedException {
-        // Launch Website of amazon app
+        // Launch Website of amazon app to test CI/CD
         util.launchUrl();
         System.out.println(dt.itema);
         logger.info("amazon app launched");
